@@ -1,0 +1,27 @@
+
+<center>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2FA Authentication</title>
+    <!-- Include any necessary CSS files or styles -->
+</head>
+<body>
+    <h1>Two-Factor Authentication (2FA) Verification</h1>
+    <form action="/verify2fa" method="POST" id="2faForm">
+        <label for="otp">Enter 6-digit OTP from Google Authenticator:</label><br>
+        <input type="text" id="otp" name="otp" required><br><br>
+        <input type="hidden" id="name" name="name" value="{{name}}">
+        <button type="submit">Verify</button>
+    </form>
+
+    {{#if qr_code}}
+        <h2>Scan this QR code with Google Authenticator</h2>
+        <img src="{{qr_code}}" alt="QR Code">
+    {{/if}}
+
+</body>
+</html>
+</center>
